@@ -1,0 +1,137 @@
+footer {
+  @include respond(tab-port) {
+    margin-top: 120px;
+  }
+
+  @include respond(phone) {
+    margin-top: 88px;
+  }
+
+  background-color: hsl(0, 0%, 6%);
+  padding-bottom: 36px;
+
+  & hr {
+    width: 101px;
+    height: 4px;
+    border: none;
+    background-color: hsl(22, 65%, 57%);
+    margin-bottom: 48px;
+
+    @include respond(phone) {
+      margin: 0 auto 48px;
+    }
+  }
+
+  & nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    @include respond(phone) {
+      align-items: center;
+    }
+
+    & a {
+      display: flex;
+      align-items: center;
+    }
+
+    & ul {
+      list-style: none;
+
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      justify-content: space-between;
+
+      @include respond(phone) {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      & li a {
+        text-decoration: none;
+        color: hsl(0, 0%, 100%);
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        transition: all 0.03s;
+
+        &:hover,
+        &:active {
+          color: hsl(22, 65%, 57%);
+        }
+
+        &.active {
+          color: hsl(22, 65%, 57%);
+        }
+      }
+    }
+  }
+
+  & .footer-content {
+    padding-top: 36px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: end;
+
+    @include respond(tab-port) {
+      display: block;
+      position: relative;
+    }
+
+    & .content {
+      color: hsla(0, 0%, 100%, 0.5);
+
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+
+      @include respond(phone) {
+        align-items: center;
+        text-align: center;
+
+        gap: 48px;
+      }
+    }
+
+    & .icons {
+      display: flex;
+      gap: 16px;
+
+      @include respond(only-tab-port) {
+        position: absolute;
+
+        right: 0;
+        bottom: 0;
+      }
+
+      @include respond(phone) {
+        justify-content: center;
+        margin-top: 48px;
+      }
+
+      & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-decoration: none;
+
+        &:hover svg path {
+          fill: hsl(22, 65%, 57%);
+        }
+      }
+    }
+  }
+}

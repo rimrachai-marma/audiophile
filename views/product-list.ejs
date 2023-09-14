@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head",{pageTitle}); -%>
+  </head>
+
+  <body>
+    <header class="header-catagories-page">
+      <div class="container">
+        <!-- NAVIGATION -->
+        <%- include("partials/navigation"); -%>
+
+        <!-- hero section -->
+
+        <section id="hero">
+          <h1><%= headerContent %></h1>
+        </section>
+      </div>
+
+      <!-- CART  -->
+      <%- include("partials/cart"); -%>
+    </header>
+    <main>
+      <div class="container">
+        <section id="section-product-list">
+          <ul>
+            <% products.forEach(product => { %>
+            <li>
+              <picture>
+                <source
+                  srcset="<%= product.categoryImage.mobile %>"
+                  media="(max-width: 30em)"
+                />
+                <source
+                  srcset="<%= product.categoryImage.tablet %>"
+                  media="(max-width: 48em)"
+                />
+
+                <img
+                  srcset="<%= product.categoryImage.desktop %>"
+                  alt="XX99 Mark II Headphones"
+                />
+              </picture>
+              <div class="content">
+                <div class="title">
+                  <% if (product.new) { %>
+                  <span>New product</span>
+                  <% } %>
+
+                  <h2><%= product.name %></h2>
+                </div>
+
+                <p><%= product.description %></p>
+                <a href="/products/<%= product.slug %>">See product</a>
+              </div>
+            </li>
+            <% }) %>
+          </ul>
+        </section>
+
+        <!-- SECTION | CATAGORY -->
+        <%- include("partials/catagory"); -%>
+
+        <!-- SECTION | DESCRIPTION -->
+        <%- include("partials/description"); -%>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include("partials/footer"); -%>
+  </body>
+</html>

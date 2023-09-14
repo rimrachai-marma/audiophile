@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head",{pageTitle}); -%>
+  </head>
+  <body>
+    <header class="header-homepage">
+      <div class="image">
+        <picture>
+          <source
+            srcset="<%= heroProduct.image.mobile %>"
+            media="(max-width: 30em)"
+          />
+          <source
+            srcset="<%= heroProduct.image.tablet %>"
+            media="(max-width: 48em)"
+          />
+
+          <img
+            src="<%= heroProduct.image.desktop %>"
+            alt="<%= heroProduct.name %>"
+          />
+        </picture>
+      </div>
+
+      <div class="container">
+        <!-- NAVIGATION -->
+        <%- include("partials/navigation"); -%>
+
+        <!-- SECTION | HERO -->
+        <section id="hero-section">
+          <div class="wrapper">
+            <div class="content">
+              <% if (heroProduct.new) { %>
+              <div class="overline">New product</div>
+              <% } %>
+
+              <h1><%= heroProduct.name %></h1>
+              <p><%= heroProduct.description %></p>
+              <a href="/products/<%= heroProduct.slug %>">See product</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- CART  -->
+      <%- include("partials/cart"); -%>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- SECTION | CATAGORY -->
+        <%- include("partials/catagory"); -%>
+
+        <!-- SECTION | PRODUCTS -->
+        <section id="section-products">
+          <div class="product-item_one">
+            <div class="image-container">
+              <picture>
+                <source
+                  srcset="<%= homeProduct.product_1?.image.mobile %>"
+                  media="(max-width: 30em)"
+                />
+                <source
+                  srcset="<%= homeProduct.product_1?.image.tablet %>"
+                  media="(max-width: 48em)"
+                />
+
+                <img
+                  src="<%= homeProduct.product_1?.image.desktop %>"
+                  alt="<%= homeProduct.product_1?.name %>"
+                />
+              </picture>
+            </div>
+
+            <div class="content">
+              <h1><%= homeProduct.product_1?.name %>r</h1>
+              <p><%= homeProduct.product_1?.description %></p>
+              <a href="/products/<%= homeProduct.product_1?.slug %>"
+                >see product</a
+              >
+            </div>
+          </div>
+
+          <div class="product-item_two">
+            <picture>
+              <source
+                srcset="<%= homeProduct.product_2?.image.mobile %>"
+                media="(max-width: 30em)"
+              />
+              <source
+                srcset="<%= homeProduct.product_2?.image.tablet %>"
+                media="(max-width: 48em)"
+              />
+
+              <img
+                src="<%= homeProduct.product_2?.image.desktop %>"
+                alt="<%= homeProduct.product_2?.name %>"
+              />
+            </picture>
+
+            <h2><%= homeProduct.product_2?.name %></h2>
+            <a href="/products/<%= homeProduct.product_2?.slug %>"
+              >See Product</a
+            >
+          </div>
+
+          <div class="product-item_three">
+            <picture>
+              <source
+                srcset="<%= homeProduct.product_3?.image.mobile %>"
+                media="(max-width: 30em)"
+              />
+              <source
+                srcset="<%= homeProduct.product_3?.image.tablet %>"
+                media="(max-width: 48em)"
+              />
+
+              <img
+                src="<%= homeProduct.product_3?.image.desktop %>"
+                alt="<%= homeProduct.product_3?.name %>"
+              />
+            </picture>
+
+            <div class="content">
+              <h2><%= homeProduct.product_3?.name %></h2>
+              <a href="/products/<%= homeProduct.product_3?.slug %>"
+                >See Product</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION | DESCRIPTION -->
+        <%- include("partials/description"); -%>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include("partials/footer"); -%>
+  </body>
+</html>

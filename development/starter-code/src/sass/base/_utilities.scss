@@ -1,0 +1,33 @@
+.container {
+  max-width: 1140px;
+  width: 84%;
+  margin: 0 auto;
+
+  @include respond(big-screen) {
+    min-width: 1320px;
+  }
+
+  @include respond(tab-land) {
+    width: 84%;
+    margin: 0 auto;
+  }
+
+  @include respond(tab-port) {
+    width: 88%;
+    margin: 0 auto;
+  }
+  @include respond(phone) {
+    width: 92%;
+    margin: 0 auto;
+  }
+}
+
+.back-button-wrapper {
+  padding: 79px 0 56px 0;
+
+  & .back-button {
+    text-transform: capitalize;
+    color: hsla(0, 0%, 0%, 0.5);
+    text-decoration: none;
+  }
+}

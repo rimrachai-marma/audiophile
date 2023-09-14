@@ -1,0 +1,382 @@
+.header-homepage {
+  height: 100vh;
+
+  // background-image: url("../assets/home/desktop/image-hero.jpg");
+  // background-size: cover;
+
+  // @include respond(tab-port) {
+  //   background-image: url("../assets/home/tablet/image-header.jpg");
+  // }
+
+  // @include respond(phone) {
+  //   background-image: url("../assets/home/mobile/image-header.jpg");
+  // }
+
+  position: relative;
+
+  & .image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & #hero-section {
+    height: calc(100vh - 97px);
+    width: 100%;
+
+    & .wrapper {
+      height: inherit;
+      display: flex;
+      align-items: center;
+
+      @include respond(tab-port) {
+        justify-content: center;
+      }
+    }
+
+    & .content {
+      max-width: 398px;
+
+      @include respond(tab-port) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      & .overline {
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: 10px;
+        color: hsla(0, 0%, 100%, 0.5);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      & h1 {
+        line-height: 58px;
+        letter-spacing: 2px;
+        font-size: 56px;
+        color: hsl(0, 0%, 100%);
+      }
+
+      & p {
+        margin-top: 25px;
+        color: hsla(0, 0%, 100%, 0.75);
+      }
+
+      & a {
+        height: 48px;
+        width: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: 25px;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        background-color: hsl(22, 65%, 57%);
+        transition: all 0.03s;
+
+        &:hover,
+        &:active {
+          background-color: hsl(21, 94%, 75%);
+        }
+      }
+    }
+  }
+}
+
+// PRODUCTS SECTION
+#section-products {
+  padding-top: 160px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+
+  @include respond(tab-port) {
+    padding-top: 120px;
+
+    gap: 32px;
+  }
+
+  @include respond(phone) {
+    padding-top: 88px;
+
+    gap: 24px;
+  }
+
+  & .product-item {
+    &_one {
+      padding: 0 130px;
+      width: 100%;
+      height: 560px;
+      background-color: hsl(22, 65%, 57%);
+      border-radius: 5px;
+
+      display: flex;
+      gap: 140px;
+      align-items: center;
+
+      background-image: url(../assets/home/desktop/pattern-circles.svg);
+      background-repeat: no-repeat;
+      background-position: -150px -40px;
+
+      @include respond(tab-port) {
+        flex-direction: column;
+        gap: 50px;
+
+        background-position: center -320px;
+        padding: 60px;
+        height: auto;
+      }
+
+      @include respond(phone) {
+        background-size: 650px;
+        background-position: center -140px;
+      }
+
+      & .image-container {
+        display: flex;
+        height: 100%;
+        overflow: hidden;
+
+        width: fit-content;
+        margin: 0 auto;
+
+        & picture {
+          margin: auto 0 0;
+
+          & img {
+            width: 100%;
+            display: block;
+
+            @include respond(tab-port) {
+              width: 180px;
+            }
+
+            @include respond(phone) {
+              width: 170px;
+            }
+          }
+        }
+      }
+
+      & .content {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+
+        @include respond(tab-port) {
+          align-items: center;
+          text-align: center;
+
+          max-width: 350px;
+        }
+
+        & h1 {
+          font-size: 56px;
+          letter-spacing: 2px;
+          line-height: 58px;
+          color: hsl(0, 0%, 100%);
+          text-transform: uppercase;
+        }
+
+        & p {
+          color: hsla(0, 0%, 100%, 0.75);
+          font-size: 15px;
+        }
+
+        & a {
+          height: 48px;
+          width: 160px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          font-size: 13px;
+          font-weight: 700;
+          line-height: auto;
+          letter-spacing: 1px;
+          color: hsl(0, 0%, 100%);
+          text-decoration: none;
+          text-transform: uppercase;
+          background-color: hsl(0, 0%, 0%);
+          margin-top: 20px;
+
+          transition: all 0.03s;
+
+          &:hover {
+            background-color: hsl(0, 0%, 30%);
+          }
+        }
+      }
+    }
+
+    &_two {
+      width: 100%;
+      height: 320px;
+      border-radius: 5px;
+      overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 35px;
+      padding-left: 100px;
+
+      @include respond(tab-port) {
+        padding-left: 60px;
+      }
+
+      @include respond(phone) {
+        padding-left: 30px;
+      }
+
+      // background: url("../assets/home/desktop/image-speaker-zx7.jpg");
+      // background-size: cover;
+      // background-repeat: no-repeat;
+
+      position: relative;
+
+      & img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        object-fit: cover;
+      }
+
+      & h2 {
+        font-size: 28px;
+        line-height: auto;
+        letter-spacing: 2px;
+        color: hsl(0, 0%, 0%);
+        text-transform: uppercase;
+      }
+
+      & a {
+        height: 48px;
+        width: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 13px;
+        font-weight: 700;
+        line-height: auto;
+        letter-spacing: 1px;
+        color: hsl(0, 0%, 0%);
+        text-decoration: none;
+        text-transform: uppercase;
+        background-color: transparent;
+        border: 1px solid hsl(0, 0%, 0%);
+
+        transition: all 0.03s;
+
+        &:hover {
+          background-color: hsl(0, 0%, 0%);
+          color: hsl(0, 0%, 100%);
+        }
+      }
+    }
+
+    &_three {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+
+      @include respond(tab-port) {
+        gap: 11px;
+      }
+
+      @include respond(phone) {
+        display: block;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+
+        @include respond(phone) {
+          height: 200px;
+        }
+      }
+
+      & .content {
+        padding-left: 100px;
+        background-color: hsl(0, 0%, 95%);
+        border-radius: 5px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px;
+
+        @include respond(tab-port) {
+          padding-left: 50px;
+        }
+
+        height: 100%;
+        @include respond(phone) {
+          height: 200px;
+          padding-left: 30px;
+        }
+
+        & h2 {
+          text-transform: uppercase;
+          line-height: auto;
+          letter-spacing: 2px;
+          font-size: 28px;
+          color: hsl(0, 0%, 0%);
+        }
+
+        & a {
+          height: 48px;
+          width: 160px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          font-size: 13px;
+          font-weight: 700;
+          line-height: auto;
+          letter-spacing: 1px;
+          color: hsl(0, 0%, 0%);
+          text-decoration: none;
+          text-transform: uppercase;
+          background-color: transparent;
+          border: 1px solid hsl(0, 0%, 0%);
+
+          transition: all 0.03s;
+
+          &:hover {
+            background-color: hsl(0, 0%, 0%);
+            color: hsl(0, 0%, 100%);
+          }
+        }
+      }
+    }
+  }
+}

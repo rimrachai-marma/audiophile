@@ -1,0 +1,15 @@
+{
+  "name": "audiophile-ecommerce-website",
+  "version": "1.0.0",
+  "description": "audiophile-ecommerce-website",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass src/sass/main.scss src/css/style.css -w",
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.comp.css"
+  },
+  "author": "Rimrachai Marma",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

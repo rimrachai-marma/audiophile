@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head",{pageTitle}); -%>
+    <script defer src="/js/product.js"></script>
+  </head>
+
+  <body>
+    <header id="header-product-page">
+      <div class="container">
+        <!-- NAVIGATION -->
+        <%- include("partials/navigation"); -%>
+      </div>
+
+      <!-- CART  -->
+      <%- include("partials/cart"); -%>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="back-button-wrapper">
+          <a class="back-button" href="javascript:history.back()">go back</a>
+        </div>
+
+        <section id="section-product-info">
+          <div class="picture">
+            <picture>
+              <source
+                srcset="<%= product.image.mobile %>"
+                media="(max-width: 30em)"
+              />
+              <source
+                srcset="<%= product.image.tablet %>"
+                media="(max-width: 48em)"
+              />
+
+              <img
+                src="<%= product.image.desktop %>"
+                alt="<%= product.name %>"
+              />
+            </picture>
+          </div>
+          <div class="content">
+            <div class="title">
+              <% if (product.new) { %>
+              <span>new product</span>
+              <% } %>
+              <h1><%= product.name %></h1>
+            </div>
+
+            <p><%= product.description %></p>
+
+            <h3>$2,999</h3>
+
+            <div class="product-buttons">
+              <div class="quantity-section">
+                <button data-btn-decrement-qty>&#8722;</button>
+                <span data-product-qty>1</span>
+                <button data-btn-increment-qty>&#43;</button>
+              </div>
+
+              <button data-product-id="<%= product.id %>" data-btn-add-to-cart>
+                add to cart
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-product-feature">
+          <div class="feature-text">
+            <h2>Features</h2>
+            <p><%= product.features %></p>
+          </div>
+          <div class="feature-includes">
+            <h2>In the box</h2>
+            <ul>
+              <% product.includes.forEach(include => { %>
+              <li>
+                <span><%= include.quantity %>x</span>
+                <span><%= include.item %></span>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </section>
+
+        <section id="section-product-gallery">
+          <div class="gallery-item">
+            <picture>
+              <source
+                srcset="<%= product.gallery.first.mobile %>"
+                media="(max-width: 30em)"
+              />
+              <source
+                srcset="<%= product.gallery.first.tablet %>"
+                media="(max-width: 48em)"
+              />
+
+              <img
+                srcset="<%= product.gallery.first.desktop %>"
+                alt="<%= product.name %>"
+              />
+            </picture>
+          </div>
+
+          <div class="gallery-item">
+            <picture>
+              <source
+                srcset="<%= product.gallery.second.mobile %>"
+                media="(max-width: 30em)"
+              />
+              <source
+                srcset="<%= product.gallery.second.tablet %>"
+                media="(max-width: 48em)"
+              />
+
+              <img
+                srcset="<%= product.gallery.second.desktop %>"
+                alt="<%= product.name %>"
+              />
+            </picture>
+          </div>
+
+          <div class="gallery-item">
+            <picture>
+              <source
+                srcset="<%= product.gallery.third.mobile %>"
+                media="(max-width: 30em)"
+              />
+              <source
+                srcset="<%= product.gallery.third.tablet %>"
+                media="(max-width: 48em)"
+              />
+
+              <img
+                srcset="<%= product.gallery.third.desktop %>"
+                alt="<%= product.name %>"
+              />
+            </picture>
+          </div>
+        </section>
+
+        <section id="section-related-products">
+          <h2>YOU MAY ALSO LIKE</h2>
+
+          <div class="related-products-container">
+            <% product.others.forEach(relatedProduct => { %>
+            <div class="related-products-item">
+              <picture>
+                <source
+                  srcset="<%= relatedProduct.image.mobile %>"
+                  media="(max-width: 30em)"
+                />
+                <source
+                  srcset="<%= relatedProduct.image.tablet %>"
+                  media="(max-width: 48em)"
+                />
+
+                <img
+                  srcset="<%= relatedProduct.image.desktop %>"
+                  alt="xx99-mark-one-headphones"
+                />
+              </picture>
+
+              <h3><%= relatedProduct.name %></h3>
+
+              <a href="/products/<%= relatedProduct.slug %>">see product</a>
+            </div>
+            <% }) %>
+          </div>
+        </section>
+
+        <!-- SECTION | CATAGORY -->
+        <%- include("partials/catagory"); -%>
+
+        <!-- SECTION | DESCRIPTION -->
+        <%- include("partials/description"); -%>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <%- include("partials/footer"); -%>
+  </body>
+</html>
