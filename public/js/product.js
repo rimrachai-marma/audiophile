@@ -22,4 +22,12 @@ btnProductQtyDecrement.addEventListener("click", () => {
 btnAddToCart.addEventListener("click", () => {
   const productId = parseInt(btnAddToCart.dataset.productId);
   cart.addAndIncrimentCartItem(productId, productQty);
+
+  new Toast({
+    text: `${productQty} ${productQty === 1 ? "item" : "items"} added to cart!`,
+    position: "bottom-right",
+    autoClose: 2000,
+    pauseOnHover: true,
+    pauseOnFocusLoss: true,
+  });
 });

@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <%- include("partials/head",{pageTitle}); -%>
+    <link rel="stylesheet" href="/css/toast.css" />
     <script defer src="/js/product.js"></script>
+    <script defer src="/js/Toast.js"></script>
   </head>
 
   <body>
@@ -50,7 +52,7 @@
 
             <p><%= product.description %></p>
 
-            <h3>$2,999</h3>
+            <h3><%= product.price %></h3>
 
             <div class="product-buttons">
               <div class="quantity-section">

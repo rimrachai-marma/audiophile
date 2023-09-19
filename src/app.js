@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const data = require("./data/data.json");
+const { formatCurrency } = require("./utilities/formater");
 
 // INITIATE EXPRESS APP
 const app = express();
@@ -32,7 +33,7 @@ app.get("/products/:slug", function (req, res) {
   }
 
   res.render("product", {
-    product,
+    product: { ...product, price: formatCurrency(product.price, "USD") },
     pageTitle: `${product.name} | Audiophile e-commerce website`,
   });
 });
@@ -56,7 +57,7 @@ app.get("/speakers", (req, res) => {
 
   res.render("product-list", {
     pageTitle: "Speakers | Audiophile e-commerce website",
-    headerContent: "Headphones",
+    headerContent: "Speakers",
     products: products.slice().reverse(),
   });
 });
@@ -68,7 +69,7 @@ app.get("/earphones", (req, res) => {
 
   res.render("product-list", {
     pageTitle: "Earphones | Audiophile e-commerce website",
-    headerContent: "earphones",
+    headerContent: "Earphones",
     products: products.slice().reverse(),
   });
 });
@@ -161,9 +162,7 @@ app.post("/api/order", (req, res) => {
     return total + (storeItem?.price ?? 0) * orderItem.qty;
   }, 0);
 
-  const totalVat = totalPrice * (20 / 100);
-
-  const grandTotal = totalPrice + totalVat + 50;
+  const grandTotal = totalPrice + 50;
 
   const totalQty = orderItems.reduce((total, item) => total + item.qty, 0);
 

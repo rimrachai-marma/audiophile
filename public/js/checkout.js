@@ -50,7 +50,7 @@ class Checkout extends Cart {
     this.#VatElement.textContent = formatCurrency(totalVat, "USD");
 
     // UPDATE GRAND TOTAL
-    const grandTotal = totalPrice + this.#shippingCharge + totalVat;
+    const grandTotal = totalPrice + this.#shippingCharge;
     this.#GrandTotalElement.textContent = formatCurrency(grandTotal, "USD");
   };
 
